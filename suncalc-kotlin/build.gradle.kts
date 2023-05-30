@@ -1,9 +1,21 @@
 plugins {
     kotlin("jvm") version "1.8.0"
+    `maven-publish`
 }
 
 group = "tt.co.jesses"
 version = "1.0-SNAPSHOT"
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "tt.co.jesses"
+            artifactId = "suncalc-kotlin"
+            version = "0.1-SNAPSHOT"
+            from(components["java"])
+        }
+    }
+}
 
 repositories {
     mavenCentral()
